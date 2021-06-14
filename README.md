@@ -7,7 +7,7 @@
 #### Axios
 #### Form Handelling 
 #### Basic Hooks like
-#### UseStae
+#### UseState
 #### UseEffect
 #### UseForm
 

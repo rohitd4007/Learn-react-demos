@@ -2,8 +2,8 @@
 
 ### This Repository Includes Codes to Demonstrate the Basic React Functionality as mentioned Below
 
-#### Component
-#### Routes
+* Component
+* Routes
 #### Axios
 #### Form Handelling 
 #### Basic Hooks like

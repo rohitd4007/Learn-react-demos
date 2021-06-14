@@ -6,7 +6,7 @@
 * Routes
 * Axios
 * Form Handelling 
-** Basic Hooks like
+* Basic Hooks like
 * UseState
 * UseEffect
 * UseForm

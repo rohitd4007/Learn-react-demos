@@ -1,17 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import Counters from "./components/counters ";
+import Parent from "./components/parrentComponent";
+import Sample from "./components/sampleComponenet";
+import TTimer from "./components/lifecycleDemo";
+import AxiosDemo from "./components/axiosDemo";
+import EffectDemo from "./components/useEffectDemo";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import EmployeeDetail from "./components/Employee";
+import App from "./App";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+function GitData({ login }) {
+  const [data, setdata] = useState(null);
+  console.log(login);
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${login}`)
+      .then((response) => response.json())
+      .then(setdata)
+      .catch(console.error);
+  }, []);
+
+  if (data) {
+    return <div>{JSON.stringify(data)}</div>;
+  }
+  return null;
+}
+
+function New(pp) {
+  console.log(pp);
+  return <GitData login="rohitd4007" />;
+}
+
+ReactDOM.render(<EffectDemo />, document.getElementById("root"));
 reportWebVitals();

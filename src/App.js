@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// other imports...
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import React from "react";
+import Counters from "./components/counters ";
+import Parent from "./components/parrentComponent";
+const Home = () => <h2> Home </h2>;
+const NewsFeed = () => <h2> News Feed </h2>;
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <React.Fragment>
+          <nav>
+            <Link to={"/home"}> Home </Link>
+            <br />
+            <Link to={"/news"}> News feed </Link>
+            <br />
+            <Link to={"/contact"}> Contact </Link>
+            <br />
+          </nav>
+          <div>
+            <Route exact path="/" render={() => <Redirect to="/home" />} />
+            <Route path="/home" component={Counters} />
+            <Route path="/news" component={Parent} />
+            <Route path="/contact" render={() => <h3>Contact Us</h3>} />
+          </div>
+        </React.Fragment>
+         {" "}
+      </Router>
+    );
+  }
 }
-
 export default App;
